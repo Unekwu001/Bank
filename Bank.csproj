@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="LogOut.cs" />
     <Compile Include="DashBoard.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,17 +52,19 @@ namespace Bank_app
 				}
 				else if (mychoice == "3")
 				{
-					var wd = new Transactions();
 					transact.Withdraw();
 				}
 				else if (mychoice == "4")
 				{
-					var tr = new Transactions();
 					transact.Transfer();
 				}
 				else if (mychoice == "5")
 				{
 					transact.CheckBalance();
+				}
+				else if (mychoice == "7")
+				{
+					LogOut.LogMeOut();
 				}
 
 			} while (!isValidChoice);
@@ -148,6 +151,8 @@ namespace Bank_app
 			}
 			
 		}
+
+
 
 		public void PromptToViewAccount()
 		{

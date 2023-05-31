@@ -27,14 +27,14 @@ namespace Bank_app
 			do
 			{
 				Console.WriteLine("------SHAZAM BANK LOGIN PORTAL-------");
-				Console.WriteLine("Enter your email.");
+				Console.Write("Enter your email. (E.G john@gmail.com)>>>");
 				myemail = Console.ReadLine();
 			} while (!Regex.IsMatch(myemail, emailPattern));
 
 
 			do
 			{
-				Console.WriteLine("Enter your password");
+				Console.WriteLine(" Enter your password (Should be 6 characters and should include a special character(@,$,#,&,*)");
 				mypassword = Console.ReadLine();
 			} while (!Regex.IsMatch(mypassword, passwordPattern));
 
@@ -53,7 +53,7 @@ namespace Bank_app
 			if (cusEmail == myemail && cusPassword == mypassword)
 			{
 				Console.Clear();
-				Console.WriteLine("Successfully Logged in !.");
+				Console.WriteLine("Successfully Logged in !.\n");
 				
 				var myDashboard = new DashBoard();
 				myDashboard.ShowMenu();
@@ -62,7 +62,7 @@ namespace Bank_app
 			{
 				do
 				{
-					Console.WriteLine("Invalid username or password.");
+					Console.WriteLine("\n\nInvalid username or password.\n");
 					Console.WriteLine("Do you want to try again ?   Y /N");
 					press = Console.ReadLine();
 					if (press == "Y" || press == "y")

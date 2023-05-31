@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Bank;
+using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,13 +14,10 @@ namespace Bank_app
 {
 	internal class Program
 	{
-		//fields
+ 
 		
 		public static string choice;
-
-
-
-		//Entry point
+ 
 		static void Main(string[] args)
 		{
 			
@@ -36,7 +34,7 @@ namespace Bank_app
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("Welcome to Shazam Bank\n\n\n>Press 1 To Register\n\n>Press 2 To login\n\n ");
+				Console.WriteLine("Welcome to Shazam Bank\n\n\n>Press 1 To Register\n\n>Press 2 To login\n\n>Press 3 To Exit.\n\n ");
 				choice = Console.ReadLine();
 				
 				if (choice == "1")
@@ -52,14 +50,15 @@ namespace Bank_app
 					var mylogin = new Login();
 					mylogin.ApproveLogin();
 				}
+				if (choice == "3")
+				{
+
+					Console.Clear();
+					LogOut.LogMeOut();
+				}
 
 			}
-			while (!int.TryParse(choice, out _) || int.Parse(choice) != 1 || int.Parse(choice) != 2);
-
-			 
-			
-			
-			
+			while (!int.TryParse(choice, out _) || int.Parse(choice) != 1 || int.Parse(choice) != 2 || int.Parse(choice) != 3);		
 		}
 	}
 }
