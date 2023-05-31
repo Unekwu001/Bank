@@ -2,7 +2,7 @@
 ------------
 Author: Theophilus Unekwu Shaibu
 --------------------------------
-This Project is madev up of basically 5 files;
+This Project is made up of basically 5 files;
 
 1. Register.cs - for all registration related logic.
 2. Login.cs - for all login related logic.
