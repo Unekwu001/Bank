@@ -1,64 +1,20 @@
-﻿using Bank;
-using Microsoft.Win32;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Bank.Interfaces;
+using Bank.Implementations;
+using Bank_app;
+using Bank;
 
-namespace Bank_app
+class Program
 {
-	internal class Program
+	static void Main()
 	{
- 
-		
-		public static string choice;
- 
-		static void Main(string[] args)
-		{
-			
-			Controller();
-			
-		}
+		var services = new ServiceCollection();
+		services.AddScoped<IUserService, UserServices>();
+		services.AddSingleton<UserInterface>();
 
-      //------------------------------------------------------------------------------------------------
-		
-		//The controller
-		public static void Controller()
-		{
-			
-			do
-			{
-				Console.Clear();
-				Console.WriteLine("Welcome to Shazam Bank\n\n\n>Press 1 To Register\n\n>Press 2 To login\n\n>Press 3 To Exit.\n\n ");
-				choice = Console.ReadLine();
-				
-				if (choice == "1")
-				{
-					var customa = new Register();
-					customa.Registration();
-					
-				}
-				if (choice == "2")
-				{
-				
-					Console.Clear();
-					var mylogin = new Login();
-					mylogin.ApproveLogin();
-				}
-				if (choice == "3")
-				{
+		var serviceProvider = services.BuildServiceProvider();
+		var userInterface = serviceProvider.GetRequiredService<UserInterface>();
 
-					Console.Clear();
-					LogOut.LogMeOut();
-				}
-
-			}
-			while (!int.TryParse(choice, out _) || int.Parse(choice) != 1 || int.Parse(choice) != 2 || int.Parse(choice) != 3);		
-		}
+		userInterface.Run();
 	}
 }
